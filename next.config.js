@@ -1,3 +1,13 @@
+// Use this to control output for static export
+// Set to `export` to enable static export
+const output = process.env.EXPORT === '1' ? 'export' : undefined
+
+// Use this to control unoptimized setting
+const unoptimized = process.env.UNOPTIMIZED === '1'
+
+// Use this to control base path
+const basePath = process.env.BASE_PATH || ''
+
 const { withContentlayer } = require('next-contentlayer2')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -53,10 +63,6 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ]
-
-const output = process.env.EXPORT ? 'export' : undefined
-const basePath = process.env.BASE_PATH || undefined
-const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}

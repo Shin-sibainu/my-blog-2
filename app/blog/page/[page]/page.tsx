@@ -12,6 +12,9 @@ export const generateStaticParams = async () => {
   return paths
 }
 
+// ISRを有効にするためのrevalidate設定（60秒ごとに再生成）
+export const revalidate = 60
+
 export default async function Page(props: { params: Promise<{ page: string }> }) {
   const params = await props.params
   const posts = allCoreContent(sortPosts(allBlogs))
