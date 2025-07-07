@@ -1,0 +1,24 @@
+{
+  "node_modules\\@giscus\\react\\dist\\index.js -> ./giscus-Ci9LqPcC.js": {
+    "id": 7408,
+    "files": [
+      "static/chunks/408.a9361fa171495218.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 472,
+    "files": [
+      "static/chunks/472.c9c553ed521ab6aa.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 9341,
+    "files": [
+      "static/chunks/341.15743847d3e383b0.js"
+    ]
+  },
+  "node_modules\\pliny\\chunk-O6XQYU4T.js -> @docsearch/react": {
+    "id": 3265,
+    "files": []
+  }
+}
