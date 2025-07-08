@@ -4,7 +4,9 @@
       "Bash(find:*)",
       "Bash(ls:*)",
       "Bash(grep:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(npx wrangler r2 bucket create:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }

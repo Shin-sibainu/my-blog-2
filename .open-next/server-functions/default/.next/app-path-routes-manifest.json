@@ -5,11 +5,11 @@
   "/_not-found/page": "/_not-found",
   "/page": "/",
   "/about/page": "/about",
-  "/blog/page": "/blog",
   "/blog/page/[page]/page": "/blog/page/[page]",
   "/projects/page": "/projects",
-  "/tags/[tag]/page/[page]/page": "/tags/[tag]/page/[page]",
-  "/tags/[tag]/page": "/tags/[tag]",
   "/blog/[...slug]/page": "/blog/[...slug]",
-  "/tags/page": "/tags"
+  "/blog/page": "/blog",
+  "/tags/[tag]/page": "/tags/[tag]",
+  "/tags/page": "/tags",
+  "/tags/[tag]/page/[page]/page": "/tags/[tag]/page/[page]"
 }

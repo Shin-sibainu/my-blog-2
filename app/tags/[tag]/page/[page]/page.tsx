@@ -19,8 +19,8 @@ export const generateStaticParams = async () => {
   })
 }
 
-// ISRを有効にするためのrevalidate設定（60秒ごとに再生成）
-export const revalidate = 60
+// ISRを無効化して静的生成に変更
+// export const revalidate = 60
 
 export default async function TagPage(props: { params: Promise<{ tag: string; page: string }> }) {
   const params = await props.params

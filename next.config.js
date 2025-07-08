@@ -1,6 +1,6 @@
 // Use this to control output for static export
-// Set to `export` to enable static export
-const output = process.env.EXPORT === '1' ? 'export' : undefined
+// Set to `export` to enable static export, `standalone` for Cloud Run
+const output = process.env.EXPORT === '1' ? 'export' : process.env.CLOUD_RUN === '1' ? 'standalone' : undefined
 
 // Use this to control unoptimized setting
 const unoptimized = process.env.UNOPTIMIZED === '1'
