@@ -3,13 +3,12 @@
 const output = process.env.EXPORT === '1' ? 'export' : process.env.CLOUD_RUN === '1' ? 'standalone' : undefined
 
 // Use this to control unoptimized setting
-const unoptimized = process.env.UNOPTIMIZED === '1'
+const unoptimized = process.env.UNOPTIMIZED === '1' || process.env.EXPORT === '1'
 
 // Use this to control base path
 const basePath = process.env.BASE_PATH || ''
 
 const { withContentlayer } = require('next-contentlayer2')
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -87,20 +86,28 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
-    },
+    // GitHub Pages用の設定を追加
+    ...(process.env.EXPORT === '1' && {
+      assetPrefix: basePath,
+      // 静的エクスポート時はheadersを無効化
+      headers: undefined,
+    }),
+    // 通常時のheaders設定
+    ...(!process.env.EXPORT && {
+      async headers() {
+        return [
+          {
+            source: '/(.*)',
+            headers: securityHeaders,
+          },
+        ]
+      },
+    }),
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
       })
-
       return config
     },
   })
